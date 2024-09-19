@@ -1,0 +1,9 @@
+@media (min-width: 768px) {
+  .order-img {
+    width: 200px;
+  }
+}
+[name="quantatity"] {
+  background-color: #03035b;
+  border: 0.5px solid;
+}

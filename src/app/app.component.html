@@ -1,0 +1,139 @@
+<app-navbar></app-navbar>
+<div class="container">
+  <router-outlet></router-outlet>
+</div>
+<footer
+  class="footer has-bg-image"
+  style="background-image: url('section-bg.jpg')"
+>
+  <div class="footer-top section">
+    <div class="container grid-list">
+      <div class="footer-brand">
+        <a href="#" class="logo fw-bolder">
+          <i class="fa-solid fa-book-open fa-2xl"></i>Ahmed BOOKS
+        </a>
+
+        <p class="footer-text">
+          The library aims to create the largest database of authors of Arabic
+          books throughout history.
+        </p>
+
+        <ul class="social-list">
+          <li>
+            <a href="#" class="social-link">
+              <i class="fa-brands fa-facebook"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="social-link">
+              <i class="fa-brands fa-twitter"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="social-link">
+              <i class="fa-brands fa-instagram"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="social-link">
+              <i class="fa-brands fa-youtube"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <ul class="footer-list">
+        <li>
+          <p class="footer-list-title">Get to Know Us</p>
+        </li>
+
+        <li>
+          <a href="#" class="footer-link">Careers</a>
+        </li>
+
+        <li>
+          <a href="#" class="footer-link">About Us</a>
+        </li>
+
+        <li>
+          <a href="#" class="footer-link">Contact Us</a>
+        </li>
+
+        <li>
+          <a href="#" class="footer-link">FAQs</a>
+        </li>
+
+        <li>
+          <a href="#" class="footer-link">Vendors</a>
+        </li>
+      </ul>
+
+      <ul class="footer-list">
+        <li>
+          <p class="footer-list-title">Information</p>
+        </li>
+
+        <li>
+          <a href="#" class="footer-link">Online Store</a>
+        </li>
+
+        <li>
+          <a href="#" class="footer-link">Privacy Policy</a>
+        </li>
+
+        <li>
+          <a href="#" class="footer-link">Refund Policy</a>
+        </li>
+
+        <li>
+          <a href="#" class="footer-link">Shipping Policy</a>
+        </li>
+
+        <li>
+          <a href="#" class="footer-link">Terms of Service</a>
+        </li>
+      </ul>
+
+      <ul class="footer-list">
+        <li>
+          <p class="footer-list-title">Services</p>
+        </li>
+
+        <li>
+          <a href="#" class="footer-link">Help</a>
+        </li>
+
+        <li>
+          <a href="#" class="footer-link">Book Writing</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="container">
+      <p class="copyright">Copyright 2024 | Ahmed Books .</p>
+
+      <img
+        src="payment-mehtod.png"
+        width="311"
+        height="30"
+        loading="lazy"
+        alt="Payment method"
+        class="w-100"
+      />
+    </div>
+  </div>
+</footer>
+
+<a
+  (click)="gotoTop()"
+  [class]="onscroll ? 'back-top-btn active' : 'back-top-btn'"
+  aria-label="back to top"
+  data-back-top-btn=""
+>
+  <i class="fa-solid fa-angle-up"></i
+></a>

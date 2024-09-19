@@ -1,0 +1,170 @@
+<div class="row hero">
+  <div [style.display]="successmassege ? 'block' : 'none'" class="add-suc">
+    <p>Book added successfully <i class="fa-solid fa-check ms-3"></i></p>
+  </div>
+  <div class="col-md-3 me-5">
+    <img class="w-100" [src]="'books-images/' + BookDetails.imgUrl" alt="" />
+  </div>
+  <div class="col-md-8">
+    <div style="position: relative">
+      <h2 class="fw-bolder">{{ BookDetails.title }}</h2>
+      <h3>{{ BookDetails.puplishedAt }}</h3>
+      <p class="text-dark-emphasis">
+        by
+        <span class="text-primary d-inline-block">{{ BookDetails.author }}</span
+        >(Author)
+      </p>
+      <div class="card-action" (click)="additem(BookDetails.id)">
+        <button class="action-btn" aria-label="add to cart" title="Add to Cart">
+          <i class="fa-solid fa-bag-shopping"></i>
+        </button>
+      </div>
+    </div>
+    <hr />
+    <p style="font-size: 14px">
+      {{ BookDetails.description }}
+    </p>
+    <hr />
+    <div class="row text-center">
+      <div class="col-6 col-sm-3 col-lg-2">
+        <p>Pages</p>
+        <i class="fa-solid fa-book-open fa-xl"></i>
+        <p>{{ BookDetails.numberOfPages }}</p>
+      </div>
+      <div class="col-6 col-sm-3 col-lg-2">
+        <p>Price</p>
+        <i class="fa-regular fa-money-bill-1 fa-xl"></i>
+        <p>${{ BookDetails.price }}</p>
+      </div>
+      <div class="col-6 col-sm-3 col-lg-2">
+        <p>Reviews</p>
+        <i class="fa-solid fa-star fa-xl"></i>
+        <p>{{ BookDetails.reviews }}</p>
+      </div>
+      <div class="col-6 col-sm-3 col-lg-2">
+        <p>Category</p>
+        <i class="fa-brands fa-contao fa-xl"></i>
+        <p>{{ BookDetails.category }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="slider py-5">
+  <h3 class="mb-4">Products related to this item</h3>
+  <!-- <button (click)="slideButtonPre(1)" id="prev-slide" class="slide-button">
+      <i class="fa-solid fa-angle-left"></i>
+    </button> -->
+  <!-- (scroll)="handelSlideButtom(1)" -->
+  <div class="slider-content">
+    <div
+      *ngFor="let Book of relatedBooks"
+      style="cursor: pointer; position: relative"
+    >
+      <div style="flex-shrink: 0">
+        <div [routerLink]="['/details', Book.id]" class="product-card">
+          <span *ngIf="isNew(Book.puplishedAt)" class="card-badge">New</span>
+
+          <div
+            class="card-banner img-holder"
+            style="--width: 384; --height: 480"
+          >
+            <img
+              [src]="'books-images/' + Book.imgUrl"
+              width="384"
+              height="480"
+              loading="lazy"
+              alt="Black Night"
+              class="img-cover"
+            />
+          </div>
+
+          <div class="card-content">
+            <h3 class="h3">
+              <a href="#" class="card-title">{{ Book.title }}</a>
+            </h3>
+
+            <data class="card-price" value="80">${{ Book.price }}</data>
+
+            <div class="rating-wrapper">
+              <div class="vote star">
+                <div
+                  [style.width]="Book.reviews * 10 + '%'"
+                  class="star-fill"
+                ></div>
+              </div>
+              {{ Book.reviews }}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-action" (click)="additem(Book.id)">
+        <button class="action-btn" aria-label="add to cart" title="Add to Cart">
+          <i class="fa-solid fa-bag-shopping"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+  <!-- <button id="next-slide" (click)="slideButtonNex(1)" class="slide-button">
+      <i class="fa-solid fa-angle-right"></i>
+    </button> -->
+</div>
+<div class="slider py-5">
+  <h3 class="mb-4">From the Publisher</h3>
+  <!-- <button (click)="slideButtonPre(1)" id="prev-slide" class="slide-button">
+      <i class="fa-solid fa-angle-left"></i>
+    </button> -->
+  <!-- (scroll)="handelSlideButtom(1)" -->
+  <div class="slider-content">
+    <div
+      *ngFor="let Book of AuthorBooks"
+      style="cursor: pointer; position: relative"
+    >
+      <div style="flex-shrink: 0">
+        <div [routerLink]="['/details', Book.id]" class="product-card">
+          <span *ngIf="isNew(Book.puplishedAt)" class="card-badge">New</span>
+
+          <div
+            class="card-banner img-holder"
+            style="--width: 384; --height: 480"
+          >
+            <img
+              [src]="'books-images/' + Book.imgUrl"
+              width="384"
+              height="480"
+              loading="lazy"
+              alt="Black Night"
+              class="img-cover"
+            />
+          </div>
+
+          <div class="card-content">
+            <h3 class="h3">
+              <a href="#" class="card-title">{{ Book.title }}</a>
+            </h3>
+
+            <data class="card-price" value="80">${{ Book.price }}</data>
+
+            <div class="rating-wrapper">
+              <div class="vote star">
+                <div
+                  [style.width]="Book.reviews * 10 + '%'"
+                  class="star-fill"
+                ></div>
+              </div>
+              {{ Book.reviews }}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-action" (click)="additem(Book.id)">
+        <button class="action-btn" aria-label="add to cart" title="Add to Cart">
+          <i class="fa-solid fa-bag-shopping"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+  <!-- <button id="next-slide" (click)="slideButtonNex(1)" class="slide-button">
+      <i class="fa-solid fa-angle-right"></i>
+    </button> -->
+</div>

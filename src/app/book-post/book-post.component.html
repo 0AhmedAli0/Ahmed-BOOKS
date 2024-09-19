@@ -1,0 +1,91 @@
+<form (ngSubmit)="onsubmit(BookForm)" [formGroup]="BookForm">
+  <div class="form-group mb-2">
+    <label for="Title"> Title :</label>
+    <input
+      type="text"
+      formControlName="title"
+      id="Title"
+      class="form-control"
+    />
+  </div>
+  <div class="form-group mb-2">
+    <label for="author"> Author :</label>
+    <input
+      type="text"
+      formControlName="author"
+      id="author"
+      class="form-control"
+    />
+  </div>
+  <div class="form-group mb-2">
+    <label for="puplishedAt"> Puplished At :</label>
+    <input
+      type="datetime-local"
+      formControlName="puplishedAt"
+      id="puplishedAt"
+      class="form-control"
+    />
+  </div>
+  <div class="form-group mb-2">
+    <label for="numberOfPages"> Number Of Pages :</label>
+    <input
+      type="number"
+      formControlName="numberOfPages"
+      id="numberOfPages"
+      class="form-control"
+    />
+  </div>
+  <div class="form-group mb-2">
+    <label for="description"> Description :</label>
+    <input
+      type="text"
+      formControlName="description"
+      id="description"
+      class="form-control"
+    />
+  </div>
+  <div class="form-group mb-2">
+    <label for="category"> category :</label>
+    <input
+      type="text"
+      formControlName="category"
+      id="category"
+      class="form-control"
+    />
+  </div>
+  <div class="form-group mb-2">
+    <label for="Price"> Price :</label>
+    <input
+      type="number"
+      formControlName="Price"
+      id="Price"
+      class="form-control"
+    />
+  </div>
+  <div class="form-group mb-2">
+    <label for="Reviews"> Reviews :</label>
+    <input
+      type="number"
+      formControlName="Reviews"
+      id="Reviews"
+      class="form-control"
+    />
+  </div>
+  <div class="form-group mb-2">
+    <label for="imgUrl"> Book Image :</label>
+    <input
+      type="file"
+      formControlName="imgUrl"
+      id="imgUrl"
+      class="form-control mb-2"
+      accept="image/*"
+      (change)="getImgData()"
+    />
+    <div id="img-preview"></div>
+  </div>
+  <input
+    type="submit"
+    value="Save Book"
+    class="blog-card btn text-light my-5"
+  />
+</form>

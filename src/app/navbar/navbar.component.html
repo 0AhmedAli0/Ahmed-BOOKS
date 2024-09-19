@@ -1,0 +1,144 @@
+<!-- 
+    - #HEADER
+  -->
+
+<header [class]="onscroll ? 'header active' : 'header'" data-header>
+  <div class="header-top">
+    <div class="container">
+      <a href="#" class="logo fw-bolder">
+        <i class="fa-solid fa-book-open fa-2xl"></i>Ahmed BOOKS
+      </a>
+
+      <div class="input-wrapper">
+        <input
+          (keyup)="goToSearch($event)"
+          type="search"
+          name="search"
+          placeholder="Search our store"
+          class="input-field"
+        />
+
+        <button class="btn btn-primary">Search</button>
+      </div>
+
+      <div class="header-action">
+        <button
+          [routerLink]="['/cart']"
+          class="header-action-btn"
+          aria-label="cart"
+          title="Cart"
+        >
+          <span class="span">{{ orders }}</span>
+
+          <i class="fa-solid fa-bag-shopping"></i>
+        </button>
+
+        <button
+          class="nav-open-btn"
+          aria-label="open menu"
+          title="Open Menu"
+          data-nav-toggler
+          (click)="reverse()"
+        >
+          <i class="fa-solid fa-bars"></i>
+        </button>
+
+        <button
+          *ngIf="user != null; else replace"
+          [routerLink]="['/profile']"
+          class="header-action-btn"
+          aria-label="user"
+          title="User"
+        >
+          {{ user }}
+        </button>
+        <ng-template #replace>
+          <button
+            [routerLink]="['/login']"
+            class="header-action-btn"
+            aria-label="user"
+            title="User"
+          >
+            <i class="fa-solid fa-user"></i>
+          </button>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+
+  <div
+    [class]="opentogol ? 'header-bottom active' : 'header-bottom'"
+    data-navbar
+  >
+    <div class="container">
+      <nav class="navbar">
+        <button
+          class="nav-close-btn"
+          data-nav-toggler
+          aria-label="clsoe menu"
+          title="Clsoe Menu"
+          (click)="reverse()"
+        >
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+
+        <div class="mb-5">
+          <div class="navbar-top mb-4">
+            <input
+              (keyup)="goToSearch($event)"
+              type="search"
+              name="search"
+              placeholder="Search our store"
+              class="input-field"
+            />
+
+            <button (click)="reverse()" class="search-btn" aria-label="Search">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+          </div>
+          <button
+            (click)="reverse()"
+            *ngIf="user != ''; else replace"
+            [routerLink]="['/profile']"
+            class="header-action-btn"
+            aria-label="user"
+            title="User"
+          >
+            {{ user }}
+          </button>
+          <ng-template #replace>
+            <button
+              (click)="reverse()"
+              [routerLink]="['/login']"
+              class="header-action-btn"
+              aria-label="user"
+              title="User"
+            >
+              <i class="fa-solid fa-user"></i>
+            </button>
+          </ng-template>
+        </div>
+
+        <ul class="navbar-list">
+          <li (click)="reverse()">
+            <a [routerLink]="['/home']" class="navbar-link">Home</a>
+          </li>
+
+          <li (click)="reverse()">
+            <a [routerLink]="['/sections']" class="navbar-link">Categories </a>
+          </li>
+
+          <li (click)="reverse()">
+            <a [routerLink]="['/authors']" class="navbar-link"> Authors</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+
+  <div
+    [class]="opentogol ? 'overlay active' : 'overlay'"
+    data-overlay
+    data-nav-toggler
+  ></div>
+</header>

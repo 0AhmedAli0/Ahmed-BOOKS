@@ -1,0 +1,12 @@
+<div class="hero"></div>
+<div class="container">
+  <h2 class="h2 section-title">Book categories</h2>
+  <div
+    class="category"
+    *ngFor="let category of categories"
+    [routerLink]="['/category', category.category]"
+  >
+    <i class="fa-solid fa-book fa-xl ps-3"></i>
+    {{ category.category }}
+  </div>
+</div>

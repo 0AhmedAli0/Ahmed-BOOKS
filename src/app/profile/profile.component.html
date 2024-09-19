@@ -1,0 +1,62 @@
+<div class="hero">
+  <h2 class="h2 section-title">welcome {{ user }}</h2>
+</div>
+<div class="order-body">
+  <div>
+    <div
+      style="background-color: #010127; margin-top: 20px; padding: 0px 20px"
+      *ngFor="let order of profileOrders.orders; let i = index"
+    >
+      <div class="row p-3">
+        <p class="fs-3 fw-normal col-sm-6">
+          Your order status: {{ order.orderStatus }}
+        </p>
+        <p class="fs-3 fw-normal col-sm-6">order date: {{ order.orderDate }}</p>
+      </div>
+      <div
+        class="row border-top border-light"
+        *ngFor="let BookDetails of profileOrders.itemDetails[i]; let i = index"
+        style="padding: 20px 30px"
+      >
+        <div class="order-img col-md-3 me-5">
+          <img
+            class="w-100"
+            [src]="'books-images/' + BookDetails.imgUrl"
+            alt=""
+          />
+        </div>
+        <div class="col-md-6 me-auto">
+          <h2 class="fw-bolder">{{ BookDetails.title }}</h2>
+          <h3>{{ BookDetails.category }}</h3>
+          <p class="text-dark-emphasis">
+            by
+            <span class="text-primary d-inline-block">{{
+              BookDetails.author
+            }}</span
+            >(Author)
+          </p>
+          <h4>Hardcover</h4>
+          <p style="color: limegreen">In Stock</p>
+          <div>
+            Required quantity:
+            <span style="color: limegreen; display: inline-block">
+              {{ BookDetails.quantity }}</span
+            >
+          </div>
+          <div class="rating-wrapper mt-2">
+            <div class="vote star">
+              <div
+                [style.width]="BookDetails.reviews * 10 + '%'"
+                class="star-fill"
+              ></div>
+            </div>
+            {{ BookDetails.reviews }}
+          </div>
+        </div>
+        <div class="col-md-2 mt-2">
+          <h2>Total ${{ BookDetails.price * BookDetails.quantity }}</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

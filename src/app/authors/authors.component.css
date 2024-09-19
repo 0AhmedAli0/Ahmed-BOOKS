@@ -1,0 +1,7 @@
+.category {
+  padding: 10px;
+  direction: rtl;
+  border: 1px solid;
+  cursor: pointer;
+  margin-bottom: 8px;
+}

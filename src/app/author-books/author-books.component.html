@@ -1,0 +1,61 @@
+<div class="hero"></div>
+<section class="section featured pt-0" aria-label="featured collection">
+  <div [style.display]="successmassege ? 'block' : 'none'" class="add-suc">
+    <p>Book added successfully <i class="fa-solid fa-check ms-3"></i></p>
+  </div>
+  <div class="container">
+    <h2 class="h2 section-title">{{ AuthorBooks[0].author }} Books</h2>
+
+    <ul class="grid-list">
+      <li
+        *ngFor="let Book of AuthorBooks"
+        style="cursor: pointer; position: relative"
+      >
+        <div class="product-card" [routerLink]="['/details', Book.id]">
+          <span *ngIf="isNew(Book.puplishedAt)" class="card-badge">New</span>
+
+          <div
+            class="card-banner img-holder"
+            style="--width: 384; --height: 480"
+          >
+            <img
+              [src]="'books-images/' + Book.imgUrl"
+              width="384"
+              height="480"
+              loading="lazy"
+              alt="Black Night"
+              class="img-cover"
+            />
+          </div>
+
+          <div class="card-content">
+            <h3 class="h3">
+              <a href="#" class="card-title">{{ Book.title }}</a>
+            </h3>
+
+            <data class="card-price" value="80">${{ Book.price }}</data>
+
+            <div class="rating-wrapper">
+              <div class="vote star">
+                <div
+                  [style.width]="Book.reviews * 10 + '%'"
+                  class="star-fill"
+                ></div>
+              </div>
+              {{ Book.reviews }}
+            </div>
+          </div>
+        </div>
+        <div class="card-action" (click)="additem(Book.id, $event.target)">
+          <button
+            class="action-btn"
+            aria-label="add to cart"
+            title="Add to Cart"
+          >
+            <i class="fa-solid fa-bag-shopping"></i>
+          </button>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
